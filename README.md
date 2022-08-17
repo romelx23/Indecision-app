@@ -1,5 +1,12 @@
 # 01-fundamentos
 
+## Clase 1
+```
+<!-- UpperCammel Case -->
+  <HelloWorld msg="Vite + Vue" />
+  <!-- kebab case -->
+  <hello-world msg="Vite + Vue" />
+```
 ## Project setup
 ```
 yarn install
