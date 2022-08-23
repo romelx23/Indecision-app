@@ -21,12 +21,20 @@ export default {
   },
   watch: {
     question (value, oldValue) {
-      this.isValidQuestion = false
-      //   console.log(value.includes('?'))
-      if (!value.includes('?')) return
-      //   TODO realizar la peticion
-      this.getAnswer()
-      this.isValidQuestion = true
+      try {
+        this.isValidQuestion = false
+        console.log({ value })
+        //   console.log(value.includes('?'))
+        if (!value.includes('?')) return
+        //   TODO realizar la peticion
+        this.getAnswer()
+        this.isValidQuestion = true
+      } catch (error) {
+        console.log('IndecisionPage', error)
+        // eslint-disable-next-line no-unused-expressions
+        this.answer = 'No se pudo cargar del API'
+        this.image = null
+      }
     }
   }
 }

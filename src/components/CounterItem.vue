@@ -1,9 +1,10 @@
 <template>
-  <h2>{{customTitle||'Counter'}}</h2>
+  <h2 class="counter">{{customTitle||'Counter'}}</h2>
   <p class="operation">{{count}}<sup>2</sup>={{squareCounter}} </p>
+  <p data-testid="counter" class="operation">{{count}}</p>
   <div class="container-btn">
-    <button class="btn" @click="decrement">-1</button>
-    <button class="btn" @click="increment">+1</button>
+    <button data-btn="increase" class="btn" @click="increment">+1</button>
+    <button data-btn="decrease" class="btn" @click="decrement">-1</button>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
     },
     start: {
       type: Number,
-      default: 0,
+      default: 10,
       required: true,
       validator: function (value) {
         return value >= 0
@@ -39,13 +40,13 @@ export default {
       this.count--
     },
     getSquareValue () {
-      console.log('getValue')
+      // console.log('getValue')
       return this.count * this.count
     }
   },
   computed: {
     squareCounter () {
-      console.log('computer squareCounter')
+      // console.log('computer squareCounter')
       return this.count * this.count
     },
     customTitle () {
